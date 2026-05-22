@@ -1,9 +1,9 @@
-import beforeSimple from "@/assets/andres-leal-ze_L46_GOaw-unsplash.jpg";
-import afterSimple from "@/assets/chloe-williams-vc_0qyx0bbA-unsplash.jpg";
-import beforeDetailed from "@/assets/car-wash-detailing-station.jpg";
-import afterDetailed from "@/assets/man-working-car-detailing-coating-car.jpg";
-import beforeMaster from "@/assets/hero-car.jpg";
-import afterMaster from "@/assets/zac-nielson-8k_T1EwTySs-unsplash.jpg";
+import lavagemSimplesAntes from "@/assets/lavagem-simples-antes.png";
+import lavagemSimplesDepois from "@/assets/lavagem-simples-depois.png";
+import detalhadaAntes from "@/assets/detalhada-antes.png";
+import detalhadaDepois from "@/assets/detalhada-depois.png";
+import vitrificacaoAntes from "@/assets/Vitrificação Externa-antes.png";
+import vitrificacaoDepois from "@/assets/Vitrificação Externa-depois.png";
 import type { FaqItem, Hotspot, PlanId, ServicePlan, Testimonial, TrustIndicator } from "./types";
 
 export const sectionOrder = [
@@ -224,40 +224,24 @@ export const beforeAfterItems = [
     category: "Lavagem Simples",
     service: "Lavagem Simples",
     duration: "1h",
-    before: beforeSimple,
-    after: afterSimple,
+    before: lavagemSimplesAntes,
+    after: lavagemSimplesDepois,
   },
   {
     id: "detalhada",
     category: "Detalhada",
     service: "Lavagem Detalhada",
     duration: "2h30",
-    before: beforeDetailed,
-    after: afterDetailed,
+    before: detalhadaAntes,
+    after: detalhadaDepois,
   },
   {
     id: "master",
-    category: "Master",
-    service: "Lavagem Master",
+    category: "Vitrificação",
+    service: "Vitrificação Externa",
     duration: "4h",
-    before: beforeMaster,
-    after: afterMaster,
-  },
-  {
-    id: "vidros",
-    category: "Vidros",
-    service: "Descontaminação e cristalizacao",
-    duration: "1h20",
-    before: beforeSimple,
-    after: afterMaster,
-  },
-  {
-    id: "plasticos",
-    category: "Plasticos",
-    service: "Revitalizacao de plasticos",
-    duration: "55min",
-    before: beforeDetailed,
-    after: afterSimple,
+    before: vitrificacaoAntes,
+    after: vitrificacaoDepois,
   },
 ];
 

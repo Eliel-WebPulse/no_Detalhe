@@ -48,8 +48,9 @@ const BeforeAfterSection = () => {
           description="Compare o estado inicial e final para entender o ganho real de cada pacote."
         />
 
-        <motion.div
-          className="mb-5 flex flex-wrap justify-center gap-2"
+        <motion.nav
+          aria-label="Pacotes de resultados visuais"
+          className="mx-auto mb-6 flex w-full max-w-2xl flex-col items-stretch justify-center gap-2 sm:flex-row sm:gap-3"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
@@ -61,18 +62,18 @@ const BeforeAfterSection = () => {
               type="button"
               onClick={() => setSelectedCategory(item.category)}
               variants={staggerItem}
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              className={`rounded-full border px-3 py-1 text-xs uppercase tracking-wide transition ${
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`flex-1 rounded-full border px-4 py-2 text-center text-xs font-medium uppercase tracking-wide transition sm:text-sm ${
                 selectedCategory === item.category
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border text-muted-foreground"
+                  ? "border-primary bg-primary text-primary-foreground shadow-sm"
+                  : "border-border bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
               }`}
             >
               {item.category}
             </motion.button>
           ))}
-        </motion.div>
+        </motion.nav>
 
         <motion.div
           className="mx-auto max-w-5xl rounded-xl border border-border bg-card p-4"
