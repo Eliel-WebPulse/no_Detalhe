@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NO DETALHE — Premium Automotive Design System v2 */
+
+@layer base {
+  :root {
+    /* Core — dark premium com tintura vermelha nos neutros */
+    --background: 6 8% 5%;         /* #0d0c0b — preto quente, não cinza morto */
+    --foreground: 30 12% 94%;      /* #f2ede8 — branco com tom creme */
+
+    --card: 6 8% 8%;               /* #141210 */
+    --card-foreground: 30 12% 94%;
+
+    --popover: 6 8% 8%;
+    --popover-foreground: 30 12% 94%;
+
+    /* Vermelho — mais saturado e vivo */
+    --primary: 4 80% 52%;          /* #e82e14 — vermelho que morde */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 6 8% 11%;
+    --secondary-foreground: 30 12% 94%;
+
+    --muted: 6 5% 16%;
+    --muted-foreground: 20 6% 65%; /* mantém legibilidade */
+
+    --accent: 4 72% 46%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 4 72% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 6 6% 20%;
+    --input: 6 6% 20%;
+    --ring: 4 80% 52%;
+
+    --radius: 0.5rem;
+
+    /* Custom Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(4, 80%, 52%) 0%, hsl(4, 72%, 36%) 100%);
+    --gradient-dark: linear-gradient(180deg, hsl(6, 8%, 5%) 0%, hsl(6, 8%, 3%) 100%);
+    --gradient-overlay: linear-gradient(to right, hsla(0, 0%, 0%, 0.82) 0%, hsla(0, 0%, 0%, 0.42) 50%, hsla(0, 0%, 0%, 0.2) 100%);
+
+    --shadow-glow: 0 0 40px hsla(4, 80%, 52%, 0.28);
+    --shadow-card: 0 10px 40px -10px hsla(0, 0%, 0%, 0.55);
+
+    /* Typography — contraste display/body */
+    --font-heading: 'Barlow Condensed', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    --sidebar-background: 6 8% 8%;
+    --sidebar-foreground: 30 12% 94%;
+    --sidebar-primary: 4 80% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 6 8% 11%;
+    --sidebar-accent-foreground: 30 12% 94%;
+    --sidebar-border: 6 6% 20%;
+    --sidebar-ring: 4 80% 52%;
+  }
+
+  .dark {
+    --background: 6 8% 5%;
+    --foreground: 30 12% 94%;
+    --card: 6 8% 8%;
+    --card-foreground: 30 12% 94%;
+    --popover: 6 8% 8%;
+    --popover-foreground: 30 12% 94%;
+    --primary: 4 80% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 6 8% 11%;
+    --secondary-foreground: 30 12% 94%;
+    --muted: 6 5% 16%;
+    --muted-foreground: 20 6% 65%;
+    --accent: 4 72% 46%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 4 72% 46%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 6 6% 20%;
+    --input: 6 6% 20%;
+    --ring: 4 80% 52%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 font-semibold text-primary-foreground transition-all duration-300;
+    font-family: var(--font-heading);
+    letter-spacing: 0.06em;
+    background: var(--gradient-primary);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 60px hsla(4, 80%, 52%, 0.45);
+  }
+
+  .section-title {
+    @apply font-bold tracking-tight;
+    font-family: var(--font-heading);
+    letter-spacing: 0.02em;
+  }
+
+  .section-subtitle {
+    @apply text-sm uppercase font-medium text-primary;
+    font-family: var(--font-body);
+    letter-spacing: 0.28em;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-md border border-border rounded-lg p-8;
+  }
+
+  .divider-dots {
+    @apply flex items-center justify-center gap-1 my-6;
+  }
+
+  .divider-dots::before,
+  .divider-dots::after {
+    content: '';
+    @apply w-2 h-2 rounded-full bg-primary opacity-50;
+  }
+
+  .divider-dots span {
+    @apply flex gap-1;
+  }
+
+  .divider-dots span::before,
+  .divider-dots span::after {
+    content: '';
+    @apply w-1 h-1 rounded-full bg-primary opacity-30;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .hotspot-pulse {
+    animation: hotspot-pulse 1.8s ease-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsla(4, 80%, 52%, 0.25); }
+    50% { box-shadow: 0 0 40px hsla(4, 80%, 52%, 0.45); }
+  }
+
+  @keyframes hotspot-pulse {
+    0% { box-shadow: 0 0 0 0 hsla(4, 80%, 52%, 0.7); }
+    70% { box-shadow: 0 0 0 14px hsla(4, 80%, 52%, 0); }
+    100% { box-shadow: 0 0 0 0 hsla(4, 80%, 52%, 0); }
+  }
+}
